@@ -688,7 +688,7 @@ export default function Home() {
       </div>
 
       {/* Chat Panel */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col min-h-0">
         {selectedContact ? (
           <>
             {/* Chat Header */}
@@ -739,14 +739,16 @@ export default function Home() {
             </div>
 
             {/* Messages */}
-            <ScrollArea className="flex-1 p-4">
-              <div className="space-y-4">
-                {messages.map((message: any, index: number) => (
-                  <MessageBubble key={index} message={message} user={user} />
-                ))}
-                <div ref={messagesEndRef} />
-              </div>
-            </ScrollArea>
+            <div className="flex-1 flex flex-col min-h-0">
+              <ScrollArea className="flex-1 p-4 min-h-0">
+                <div className="space-y-4">
+                  {messages.map((message: any, index: number) => (
+                    <MessageBubble key={index} message={message} user={user} />
+                  ))}
+                  <div ref={messagesEndRef} />
+                </div>
+              </ScrollArea>
+            </div>
 
             {/* Message Input */}
             <div className="px-4 py-3 border-t bg-card">
